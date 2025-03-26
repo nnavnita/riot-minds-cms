@@ -4,7 +4,8 @@
   "info": {
     "singularName": "freelancer",
     "pluralName": "freelancers",
-    "displayName": "Freelancer"
+    "displayName": "Freelancer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,7 +27,44 @@
     },
     "Email": {
       "type": "email",
-      "required": true
+      "required": true,
+      "unique": true,
+      "private": true
+    },
+    "Avatar": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Docs": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "RatePerUnit": {
+      "type": "decimal"
+    },
+    "Unit": {
+      "type": "string"
+    },
+    "WorkingHoursPerDay": {
+      "type": "integer"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Role": {
+      "type": "string"
     }
   }
 }
