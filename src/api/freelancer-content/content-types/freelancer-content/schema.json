@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "freelancer_contents",
+  "info": {
+    "singularName": "freelancer-content",
+    "pluralName": "freelancer-contents",
+    "displayName": "FreelancerContent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "text"
+    }
+  }
+}

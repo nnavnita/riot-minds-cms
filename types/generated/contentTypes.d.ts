@@ -404,12 +404,13 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
-  collectionName: 'blogs';
+export interface ApiFreelancerContentFreelancerContent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'freelancer_contents';
   info: {
-    displayName: 'Blog';
-    pluralName: 'blogs';
-    singularName: 'blog';
+    displayName: 'FreelancerContent';
+    pluralName: 'freelancer-contents';
+    singularName: 'freelancer-content';
   };
   options: {
     draftAndPublish: true;
@@ -420,18 +421,17 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Attachments: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    Content: Schema.Attribute.RichText;
+    Content: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Date: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::freelancer-content.freelancer-content'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    Subtitle: Schema.Attribute.String;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1035,7 +1035,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::blog.blog': ApiBlogBlog;
+      'api::freelancer-content.freelancer-content': ApiFreelancerContentFreelancerContent;
       'api::freelancer.freelancer': ApiFreelancerFreelancer;
       'api::hero.hero': ApiHeroHero;
       'plugin::content-releases.release': PluginContentReleasesRelease;
